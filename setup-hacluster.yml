@@ -11,7 +11,7 @@
         name: glusterfs-server
     - name: Start gluster service
       service:
-        name: glusterfs-server
+        name: glusterd
         state: started
     - name: Create brick directory
       file:
