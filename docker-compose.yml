@@ -4,7 +4,7 @@ services:
     image: cvb941/mariadb-galera-swarm-rpi:10.1
     environment:
       - XTRABACKUP_PASSWORD_FILE=/run/secrets/xtrabackup_password
-      - MYSQL_USER=user123
+      - MYSQL_USER=hacluster
       - MYSQL_PASSWORD_FILE=/run/secrets/mysql_password
       - MYSQL_DATABASE=homeassistant
       - MYSQL_ROOT_HOST=%
@@ -24,7 +24,7 @@ services:
     image: cvb941/mariadb-galera-swarm-rpi:10.1
     environment:
       - XTRABACKUP_PASSWORD_FILE=/run/secrets/xtrabackup_password
-      - MYSQL_USER=user123
+      - MYSQL_USER=hacluster
       - MYSQL_PASSWORD_FILE=/run/secrets/mysql_password
       - MYSQL_DATABASE=homeassistant
       - MYSQL_ROOT_HOST=%
@@ -47,7 +47,7 @@ services:
         mode: host
   homeassistant:
     container_name: home-assistant
-    image: homeassistant/raspberrypi3-homeassistant:0.95.4
+    image: homeassistant/raspberrypi3-homeassistant
     volumes:
       - /var/hacluster/homeassistant:/config
       - /etc/localtime:/etc/localtime:ro
